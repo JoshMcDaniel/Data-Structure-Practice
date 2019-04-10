@@ -3,10 +3,22 @@ package com.company;
 public class BinarySearchTree {
 
     Node root;
-    int items = 0;
+    private int items = 0;
 
     public BinarySearchTree() {
         this.root = null;
+    }
+
+    // Inner class to create new Nodes for the tree
+    class Node {
+        Node left;
+        Node right;
+        int value;
+
+        public Node(int value) {
+            this.value = value;
+            left = right = null;
+        }
     }
 
     public void insert(int value) {
@@ -88,16 +100,5 @@ public class BinarySearchTree {
 
     public int getItems() {
         return items;
-    }
-}
-
-class Node {
-    Node left;
-    Node right;
-    int value;
-
-    public Node(int value) {
-        this.value = value;
-        left = right = null;
     }
 }
