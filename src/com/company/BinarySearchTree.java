@@ -90,24 +90,25 @@ public class BinarySearchTree {
     public void breadthFirstSearch() {
         Node currentNode = this.root;
         // Not the LinkList I created from scratch
+        // The list will hold the items in the breadth first order
         LinkedList list = new LinkedList();
+        // Queue holds the child Nodes in order
         Queue queue = new java.util.LinkedList<>();
         queue.add(currentNode);
         while (queue.size() > 0) {
+            // First, adds current node to the Queue,
+            // which will eventually be the children Nodes
             currentNode = (Node) queue.poll();
             System.out.printf("%s ", currentNode.value);
             list.push(currentNode.value);
+            // Add children Nodes to the Queue, if any
             if (currentNode.left != null) {
                 queue.add(currentNode.left);
             }
             if (currentNode.right != null) {
                 queue.add(currentNode.right);
             }
-        };
-    }
-
-    public void depthFirstSearch() {
-
+        }
     }
 
     public int getHeight(Node node) {
