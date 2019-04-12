@@ -1,5 +1,8 @@
 package com.company;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BinarySearchTree {
 
     Node root;
@@ -82,6 +85,29 @@ public class BinarySearchTree {
         }
         // Didn't find anything before the currentNode became null
         return false;
+    }
+
+    public void breadthFirstSearch() {
+        Node currentNode = this.root;
+        // Not the LinkList I created from scratch
+        LinkedList list = new LinkedList();
+        Queue queue = new java.util.LinkedList<>();
+        queue.add(currentNode);
+        while (queue.size() > 0) {
+            currentNode = (Node) queue.poll();
+            System.out.printf("%s ", currentNode.value);
+            list.push(currentNode.value);
+            if (currentNode.left != null) {
+                queue.add(currentNode.left);
+            }
+            if (currentNode.right != null) {
+                queue.add(currentNode.right);
+            }
+        };
+    }
+
+    public void depthFirstSearch() {
+
     }
 
     public int getHeight(Node node) {
